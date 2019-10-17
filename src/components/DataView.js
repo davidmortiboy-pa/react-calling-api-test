@@ -11,7 +11,7 @@ class DataView extends React.Component {
           <ul key={x.id}>
             <li>Id: {x.id}</li>
             <li >Title: {x.title}</li>
-            <li>Description: {x.description}</li>
+            <li>Description: <pre>{x.body}</pre></li>
           </ul>
         )}
       </React.Fragment>

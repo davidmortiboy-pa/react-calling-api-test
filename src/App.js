@@ -3,6 +3,7 @@ import axios from 'axios';
 import DownloadButton from './components/DownloadButton';
 import ClearButton from './components/ClearButton';
 import DataView from './components/DataView';
+import {download} from './util/download';
 import './App.css';
 
 class App extends React.Component {
@@ -12,7 +13,10 @@ class App extends React.Component {
 
   getData = () => {
     axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then((res) => this.setState({data: res.data}));
+      .then((res) => {
+        this.setState({data: res.data});
+        download(res.data);
+      });
   };
 
   clearData = () => {
